@@ -1,0 +1,10 @@
+%product mni-models_icbm152-nl-2009
+%copyright 2009 Louis Collins
+%vendor McConnell Brain Imaging Centre
+%packager Claude Lepage <claude@bic.mni.mcgill.ca>
+%license COPYING
+%readme README
+%description mni-models non-linear symmetric and asymmetric icbm152 T1, T2, PD
+%version @VERSION@
+%requires minc
+%requires mni-autoreg
