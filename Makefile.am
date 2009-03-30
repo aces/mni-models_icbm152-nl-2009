@@ -1,10 +1,10 @@
 AUTOMAKE_OPTIONS = check-news
 ACLOCAL_AMFLAGS = -I local_m4
 
-MNI_AUTOREG := mni_autoreg
+MNI_MODELS := mni-models
 
 # mess with the data install directory
-pkgdatadir = $(prefix)/share/$(MNI_AUTOREG)
+pkgdatadir = $(prefix)/share/$(MNI_MODELS)
 
 MODEL_BASE := mni_icbm152
 T1 := t1

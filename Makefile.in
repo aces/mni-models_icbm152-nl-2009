@@ -73,7 +73,7 @@ distuninstallcheck_listfiles = find . -type f -print
 distcleancheck_listfiles = find . -type f -print
 
 # mess with the data install directory
-pkgdatadir = $(prefix)/share/$(MNI_AUTOREG)
+pkgdatadir = $(prefix)/share/$(MNI_MODELS)
 ACLOCAL = @ACLOCAL@
 AMTAR = @AMTAR@
 AUTOCONF = @AUTOCONF@
@@ -138,7 +138,7 @@ sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 AUTOMAKE_OPTIONS = check-news
 ACLOCAL_AMFLAGS = -I local_m4
-MNI_AUTOREG := mni_autoreg
+MNI_MODELS := mni-models
 MODEL_BASE := mni_icbm152
 T1 := t1
 T2 := t2
