@@ -2,7 +2,7 @@
 AC_PREREQ([2.57])
 
 # The arguments are package name, and package version.
-AC_INIT([mni-models_icbm152-nl-2009],[1.0],[Andrew Janke <rotor@bic.mni.mcgill.ca>])
+AC_INIT([mni-models_icbm152-nl-2009],[1.1],[Andrew Janke <rotor@bic.mni.mcgill.ca>])
 AC_CONFIG_SRCDIR([epm-header.in])
 
 AM_INIT_AUTOMAKE

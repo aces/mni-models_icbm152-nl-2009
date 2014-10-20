@@ -1,3 +1,7 @@
+2014-10-18  Claude Lepage <claude@bic.mni.mcgill.ca>
+
+    * Add mask.obj, vent.obj, vent.mnc for asym model
+
 2009-03-23  Claude Lepage <claude@bic.mni.mcgill.ca>
 
     * Initial release/creation

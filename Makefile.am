@@ -33,8 +33,12 @@ noinst_DATA := \
 	$(PRIMARY_MODELS:=.mnc.gz) \
 	$(PRIMARY_MODELS:=_mask.mnc.gz) \
 	$(PRIMARY_MODELS:=_eye_mask.mnc.gz) \
+	$(PRIMARY_MODELS:=_mask.mnc.gz) \
+	$(PRIMARY_MODELS:=_mask.obj.gz) \
 	$(PRIMARY_MODELS:=_face_mask.mnc.gz) \
 	$(PRIMARY_MODELS:=_headmask.mnc.gz) \
+	$(PRIMARY_MODELS:=_vent.mnc.gz) \
+	$(PRIMARY_MODELS:=_vent.obj.gz) \
 	$(PRIMARY_MODELS:=_outline.mnc.gz) \
 	$(SECONDARY_MODELS:=.mnc.gz) \
 	$(MODEL_BASE)_$(CLS)_$(SYM_MODEL).mnc.gz \
@@ -53,9 +57,12 @@ noinst_DATA := \
 pkgdata_DATA := \
 	$(PRIMARY_MODELS:=.mnc) \
 	$(PRIMARY_MODELS:=_mask.mnc) \
+	$(PRIMARY_MODELS:=_mask.obj) \
 	$(PRIMARY_MODELS:=_eye_mask.mnc) \
 	$(PRIMARY_MODELS:=_face_mask.mnc) \
 	$(PRIMARY_MODELS:=_headmask.mnc) \
+	$(PRIMARY_MODELS:=_vent.mnc) \
+	$(PRIMARY_MODELS:=_vent.obj) \
 	$(PRIMARY_MODELS:=_outline.mnc) \
 	$(PRIMARY_MODELS:=_16_blur.mnc) \
 	$(PRIMARY_MODELS:=_16_mask.mnc) \
@@ -97,6 +104,7 @@ all: $(noinst_DATA:.gz=) $(DATE)
 	  $(make_model) $$i; \
 	done; \
 	for i in $(pkgdata_DATA); do \
+		if [ $${i: -4} == ".mnc" ]; then \
 		echo "Adding mni-model header to $$i"; \
 		minc_modify_header \
 			-sinsert mni-model:package=$(PACKAGE) \
@@ -104,4 +112,5 @@ all: $(noinst_DATA:.gz=) $(DATE)
 			-sinsert mni-model:compile-date=$(DATE_STAMP) \
 			-sinsert mni-model:compile-user=$$USER \
 			$$i; \
+		fi; \
 	done
