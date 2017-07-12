@@ -2,7 +2,7 @@
 AC_PREREQ([2.57])
 
 # The arguments are package name, and package version.
-AC_INIT([mni-models_icbm152-nl-2009],[1.1],[Andrew Janke <rotor@bic.mni.mcgill.ca>])
+AC_INIT([mni-models_icbm152-nl-2009],[1.2],[Andrew Janke <rotor@bic.mni.mcgill.ca>])
 AC_CONFIG_SRCDIR([epm-header.in])
 
 AM_INIT_AUTOMAKE
@@ -16,7 +16,7 @@ AC_PROG_INSTALL
 AC_PROG_GZIP
 
 # check for make_model
-AC_PROG_MAKE_MODEL
+# AC_PROG_MAKE_MODEL
 
 # Finish up by writing output files.
 AC_CONFIG_FILES([Makefile])

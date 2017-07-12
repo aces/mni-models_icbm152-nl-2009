@@ -48,7 +48,8 @@ noinst_DATA := \
 	$(MODEL_BASE)_$(GM)_$(SYM_MODEL).mnc.gz \
 	$(MODEL_BASE)_$(GM)_$(ASYM_MODEL).mnc.gz \
 	$(MODEL_BASE)_$(WM)_$(SYM_MODEL).mnc.gz \
-	$(MODEL_BASE)_$(WM)_$(ASYM_MODEL).mnc.gz
+	$(MODEL_BASE)_$(WM)_$(ASYM_MODEL).mnc.gz \
+	Cerebellum_Ventricles_SubCortical_Mask-2009s.mnc.gz
 
 # ANIMAL files, should not really be here.
 # mni_icbm152_lob_tal_nlin_sym_09a.mnc.gz
@@ -64,17 +65,6 @@ pkgdata_DATA := \
 	$(PRIMARY_MODELS:=_vent.mnc) \
 	$(PRIMARY_MODELS:=_vent.obj) \
 	$(PRIMARY_MODELS:=_outline.mnc) \
-	$(PRIMARY_MODELS:=_16_blur.mnc) \
-	$(PRIMARY_MODELS:=_16_mask.mnc) \
-	$(PRIMARY_MODELS:=_2_blur.mnc) \
-	$(PRIMARY_MODELS:=_2_dxyz.mnc) \
-	$(PRIMARY_MODELS:=_2_mask.mnc) \
-	$(PRIMARY_MODELS:=_4_blur.mnc) \
-	$(PRIMARY_MODELS:=_4_dxyz.mnc) \
-	$(PRIMARY_MODELS:=_4_mask.mnc) \
-	$(PRIMARY_MODELS:=_8_blur.mnc) \
-	$(PRIMARY_MODELS:=_8_dxyz.mnc) \
-	$(PRIMARY_MODELS:=_8_mask.mnc) \
 	$(SECONDARY_MODELS:=.mnc) \
 	$(MODEL_BASE)_$(CLS)_$(SYM_MODEL).mnc \
 	$(MODEL_BASE)_$(CLS)_$(ASYM_MODEL).mnc \
@@ -83,13 +73,13 @@ pkgdata_DATA := \
 	$(MODEL_BASE)_$(GM)_$(SYM_MODEL).mnc \
 	$(MODEL_BASE)_$(GM)_$(ASYM_MODEL).mnc \
 	$(MODEL_BASE)_$(WM)_$(SYM_MODEL).mnc \
-	$(MODEL_BASE)_$(WM)_$(ASYM_MODEL).mnc
+	$(MODEL_BASE)_$(WM)_$(ASYM_MODEL).mnc \
+	Cerebellum_Ventricles_SubCortical_Mask-2009s.mnc
 
 EXTRA_DIST = $(noinst_DATA) $(m4_files) \
 	epm-header.in
 
-m4_files = local_m4/ac_prog_gzip.m4 \
-	local_m4/ac_prog_make_model.m4
+m4_files = local_m4/ac_prog_gzip.m4
 
 # be tidy
 CLEANFILES = $(pkgdata_DATA)
@@ -99,10 +89,6 @@ CLEANFILES = $(pkgdata_DATA)
 	$(gzip) -d -c $< > $@
 
 all: $(noinst_DATA:.gz=) $(DATE)
-	for i in $(PRIMARY_MODELS); do \
-	  echo "Doing $$i"; \
-	  $(make_model) $$i; \
-	done; \
 	for i in $(pkgdata_DATA); do \
 		if [ $${i: -4} == ".mnc" ]; then \
 		echo "Adding mni-model header to $$i"; \

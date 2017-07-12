@@ -1,3 +1,8 @@
+2017-97-12  Claude Lepage <claude@bic.mni.mcgill.ca>
+
+    * Trimmed down installation (no more blurred files and .gz files)
+    * Added Cerebellum_Ventricles_SubCortical_Mask for CIVET
+
 2014-10-18  Claude Lepage <claude@bic.mni.mcgill.ca>
 
     * Add mask.obj, vent.obj, vent.mnc for asym model
